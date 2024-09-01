@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Redirect Page</title><script>window.onload = function () {
+        // Get the full URL of the current page
+        var queryString = window.location.search;
+
+        // Parse the URL parameters
+        var urlParams = new URLSearchParams(queryString);
+
+        // Get the 'redirect' parameter
+        var redirect = urlParams.get('redirect');
+
+        // Check if the 'redirect' parameter is present and valid
+        if (redirect) {
+          switch (redirect) {
+            case 'airbnb':
+              var redirectUrl =
+                'https://airbnb.gr/h/mountain-and-sea-stunning-view';
+              break;
+            case 'booking':
+              var redirectUrl =
+                'https://www.booking.com/hotel/gr/mountain-amp-sea-stunning-sea-view-luxury-home.en-gb.html';
+              break;
+            default:
+              var redirectUrl = 'https://www.mountainandseaview.gr';
+          }
+
+          // Redirect to the specified URL
+          window.location.href = redirectUrl;
+        } else {
+          // Handle cases where the 'redirect' parameter is missing or invalid
+          console.log('No valid redirect URL found.');
+          // Redirect back to the website
+          window.location.href = 'https://www.mountainandseaview.gr';
+        }
+      };</script></head><body><h1>Redirecting...</h1></body></html>
